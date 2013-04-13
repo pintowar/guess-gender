@@ -1,7 +1,7 @@
-This project concept came from a commom requirement of several clients witch have legacy or social based databases. Guess their users gender (Male or Female) given only their name (especially thinking in brazilian names) as input data. 
+This project concept came from a common requirement of several clients which have legacy or social based databases. "Guess" their users gender (Male or Female) given only their name (especially thinking in brazilian names) as input data. 
 
 The main idea is to use the database to check the person gender, if it fails, it will use a trained neural network to try to guess the user gender.
-For those who're seeking how th neural network was created, it was used the encog framework. There is a 'poc' folder used to validate this concept, feel free to take a look :).
+For those who're seeking how the neural network was created, it was used the encog framework. There is a 'poc' folder used to validate this concept, feel free to take a look :).
 
 To make this service avaible everywhere it uses a GAE (Google App Engine) lightweight Groovy toolkit (Gaelyk).
 

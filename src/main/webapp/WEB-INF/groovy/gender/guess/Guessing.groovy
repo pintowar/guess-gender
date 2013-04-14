@@ -19,10 +19,15 @@ public class Guessing {
   public static Map codeLetter() { letterCode().collectEntries{ k,v -> [v,k] } }
 
   public static String normalize(word){
-    def changed = word.endsWith('ã') ? word.replace('ã','an') : word
+    String changed = word.endsWith('ã') ? word.replace('ã','an') : (word.endsWith('h') ? word[0..-2] : word)
+    changed = removeRepeatedCharacters(changed)
     def aux = Normalizer.normalize(changed.toLowerCase().trim(), Normalizer.Form.NFD);
     aux = aux.replaceAll(/[^\p{ASCII}]/, "")
     ((aux.size() > 10) ? (aux[0..4] + aux[-5..-1]) : aux.padLeft(10)).toString()
+  }
+
+  public static String removeRepeatedCharacters(String word){
+    (word =~ "(\\w)\\1+").inject(word){ acc, val -> acc.replaceAll(val) }
   }
 
   public static double[] nameCode(word){

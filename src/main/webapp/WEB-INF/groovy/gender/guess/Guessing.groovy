@@ -53,7 +53,7 @@ public class Guessing {
 
   public static char guess(String name){
     Map map = genders
-    map[name] ?: neuralGuess(normalize(name.trim().split(' ').first()))
+    map[normalize(name).trim()] ?: neuralGuess(normalize(name.trim().split(' ').first()))
   }
 
   public static Closure renderMap( Map map ){
